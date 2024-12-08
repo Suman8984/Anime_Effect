@@ -1,0 +1,393 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+      background: radial-gradient(circle at 10% 20%, rgb(68, 73, 75) 0%, rgb(105, 127, 136) 100.2%);
+      
+  }
+  
+  #progress-container {
+      display: none;
+      margin-top: 20px;
+  }
+  
+  #progress-bar {
+      width: 0;
+      height: 20px;
+      background-color: #33d639;
+  }
+  
+  #progress-text {
+    font-family: Monospace;
+    margin-top: 5px;
+    font-size: 20px;
+    color: #c1e910;
+   
+  }
+  
+  #output-section {
+      display: none;
+      margin-top: 20px;
+  }
+  
+  video {
+      max-width: 100%;
+      margin-top: 10px;
+  }
+  
+  a {
+      display: block;
+      margin-top: 10px;
+  }
+  
+  /* nav bar */ 
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    padding: 10px 15px; 
+  }
+  
+  .navbar .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .navbar .menu {
+    list-style: none;
+    display: flex;
+  }
+  
+  .navbar .menu li {
+    margin: 0 15px;
+  }
+  
+  .navbar .menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar .menu a:hover {
+    color: #00bcd4;
+  }
+  
+  .navbar .search-box {
+    display: flex;
+    align-items: center;
+    background-color: #222;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .navbar .search-box input {
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    padding: 5px;
+  }
+  
+  .navbar .search-box button {
+    background-color: #00bcd4;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar .search-box button:hover {
+    background-color: #0199a4;
+  }
+     
+  .title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 42px;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px #095fff5e;
+    font-family: cursive;
+    background: linear-gradient(90deg, #0202eb, hsl(14, 95%, 50%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+  }
+  
+  .title .anime {
+    background: linear-gradient(190deg, #944936, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /*anime text style  */ 
+  .wrapper {
+    text-align: center;
+    
+    h1 {
+      
+      color: #fff;
+      font-size: 42px;
+      text-transform: uppercase;
+      font-family: cursive;
+      background: linear-gradient(to right,#095fab 10%, #25abe8 50%, #57d75b 60%);
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      color: #fff;
+      background-clip: text;
+      text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textclip 1.5s linear infinite;
+      display: inline-block;
+    }
+  }
+  
+  @keyframes textclip {
+    to {
+      background-position: 200% center;
+    }
+  }
+  
+  
+  
+  /* Button */
+  .submit {
+      font-size: 1.2rem;
+      padding: 1rem 2.5rem;
+      border: none;
+      outline: none;
+      border-radius: 0.4rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      background-color: rgb(14, 14, 26);
+      color: rgb(234, 234, 234);
+      font-weight: 700;
+      transition: 0.6s;
+      box-shadow: 0px 0px 60px #1f4c65;
+      -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+    }
+    
+    .submit:active {
+      scale: 0.92;
+    }
+    
+    .submit:hover {
+      background: rgb(2,29,78);
+      background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+      color: rgb(4, 4, 38);
+    }
+    
+  
+  
+  
+    input[type="file"] {
+      position: relative;
+    }
+    
+    input[type="file"]::file-selector-button {
+      width: 136px;
+      color: transparent;
+    }
+    
+    /* Faked label styles and icon */
+    input[type="file"]::before {
+      position: absolute;
+      pointer-events: none;
+      top: 10px;
+      left: 16px;
+      height: 20px;
+      width: 20px;
+      content: "";
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230964B0'%3E%3Cpath d='M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zM7 9l1.41 1.41L11 7.83V16h2V7.83l2.59 2.58L17 9l-5-5-5 5z'/%3E%3C/svg%3E");
+    }
+    
+    input[type="file"]::after {
+      position: absolute;
+      pointer-events: none;
+      top: 11px;
+      left: 40px;
+      color: #0964b0;
+      content: "Upload File";
+    }
+  
+    
+    /* file upload button */
+    input[type="file"]::file-selector-button {
+      border-radius: 4px;
+      padding: 0 16px;
+      height: 40px;
+      cursor: pointer;
+      background-color: white;
+      border: 1px solid rgba(0, 0, 0, 0.16);
+      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+      margin-right: 16px;
+      transition: background-color 200ms;
+    }
+    
+    /* file upload button hover state */
+    input[type="file"]::file-selector-button:hover {
+      background-color: #f3f4f6;
+    }
+    
+    /* file upload button active state */
+    input[type="file"]::file-selector-button:active {
+      background-color: #e5e7eb;
+    }
+    
+    /* ------------------------ */
+  
+  
+  
+    /*  card */ 
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+  }
+  
+  .text-section {
+      margin-top: 20px;
+      flex: 1 1 45%; /* Adjusts width for responsiveness */
+      min-width: 300px;
+      padding: 20px;
+      border-radius: 15px;
+      
+  }
+  .card-image {
+      flex: 1 1 45%; /* Adjusts width for responsiveness */ 
+      min-width: 300px;
+       border-radius: 15px;
+      background: url('img/image_1.jpg') no-repeat center center/cover;
+      
+  }
+  
+  
+  .card {
+    flex: 1 1 calc(50% - 20px); /* Two cards per row */
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+      
+     
+  }
+   .card-style{
+    padding: 15px;
+    border-radius: 15px;
+    
+  }
+  
+  
+  .text-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .text-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 10px 10px 20px #706d6d, -10px -10px 20px #333030;
+  }
+  
+  
+  
+  .key-features {
+    font-size: small;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+    color: hwb(199 4% 0% / 0.973);  
+    text-shadow: 2px 2px 1px #e6630c5e;
+    text-align: left;
+    margin-left: 20px; /* Adds space from the left */
+  }
+  .card_text{
+    color: hwb(192 4% 0% / 0.973);  
+    text-shadow: 2px 2px 1px #e6630c8a;
+  } 
+  .card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+  
+  .card:nth-child(odd) {
+    align-self: flex-start; /* Align left */
+  }
+  
+  .card:nth-child(even) {
+    align-self: flex-end; /* Align right */
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      flex: 1 1 100%; /* Full width on smaller screens */
+    }
+  }
+  
+    /* **************** */
+  /* anim  text */
+  
+    
+  @import url('https://fonts.googleapis.com/css?family=Cairo');
+  body {
+    background-color: rgb(15, 71, 224);
+  }
+  
+  .anim-text {
+    font-family: cursive;
+    text-align: center;
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    letter-spacing: 1px;
+    line-height:2
+  }
+  
+  h2 {
+    background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+    background-size: cover;
+    color: transparent;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    margin: 10px 0;
+  }
+  /* styling my button */
+  @import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+  .white-mode {
+    text-decoration: none;
+    padding: 7px 10px;
+    background-color: #122;
+    border-radius: 3px; 
+    color: #FFF;
+    transition: .35s ease-in-out;
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    font-family: "Montserrat";
+  }
+  
+  .white-mode:hover {
+    background-color: #FFF;
+    color: #122;
+  }
+  

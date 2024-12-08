@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Video Processor</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div>
+          <div>
+            <span class="wrapper">
+              <h1>Amime</h1>
+            </span>
+          </div>
+    
+        </div>
+        <ul class="menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="search-box">
+          <input type="text" placeholder="Search...">
+          <button>Search</button>
+        </div>
+      </nav>
+
+      <div>
+        <img src="{{ url_for('static', filename='img/topbar.jpg') }}" alt="output anime" width="70%" height="150">
+        <img src="{{ url_for('static', filename='img/output_1.png') }}" alt="output anime" width="20%" height="150">
+      </div>
+    
+      <h1 class="title">Design Tool for <span class="wrapper">
+          <h1>Amime</h1>
+        </span> Video </h1>
+    
+      <div class="container">
+        <div class="card-image">
+        </div>
+        <div class="text-section">
+          <div class="anim-text">
+            <h2>Key Features:</h2>
+          </div>
+          <div class="key-features">
+            <ul>
+              <li><strong class="card_text">AI-Powered Anime Effects:</strong> Add anime-style effects to every frame,
+                making your video
+                one-of-a-kind.</li>
+              <li><strong class="card_text">GPU Support:</strong> Faster and smoother processing with GPU acceleration.</li>
+              <li><strong class="card_text">Custom Frame Skipping:</strong> Skip frames for quicker and efficient
+                processing.</li>
+              <li><strong class="card_text">Edge Correction:</strong> Remove unwanted lines or artifacts from your videos.
+              </li>
+              <li><strong class="card_text">Audio Integration:</strong> Keep the original audio intact and add it to the
+                output video.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <div>
+    
+    <div class="card">
+      <form id="upload-form" enctype="multipart/form-data">
+        <div>
+          <input type="file" name="video" accept="video/*" required>
+          <button class="submit" role="button" type="submit">Upload</button>
+        </div>
+      </form>
+    </div>
+    
+      
+    </div>
+      <div id="status"></div>
+      <div id="progress-container">
+        <div id="progress-bar"> <div id="progress-text">Progress: 0%</div></div>
+        
+      </div>
+      <div id="output-section">
+        <h2>Processed Video</h2>
+        <video id="output-video" controls></video>
+        <a id="download-link" href="#" download>Download Processed Video</a>
+      </div>
+    
+      <div class="container">
+        <div class="card">
+           <div class="text-section">
+          <div class="anim-text">
+            <h2>Key Features:</h2>
+          </div>
+          <div class="key-features">
+            <ul>
+              <li><strong class="card_text">AI-Powered Anime Effects:</strong> Add anime-style effects to every frame,
+                making your video
+                one-of-a-kind.</li>
+              <li><strong class="card_text">GPU Support:</strong> Faster and smoother processing with GPU acceleration.</li>
+              <li><strong class="card_text">Custom Frame Skipping:</strong> Skip frames for quicker and efficient
+                processing.</li>
+              <li><strong class="card_text">Edge Correction:</strong> Remove unwanted lines or artifacts from your videos.
+              </li>
+              <li><strong class="card_text">Audio Integration:</strong> Keep the original audio intact and add it to the
+                output video.</li>
+            </ul>
+          </div>
+        </div>
+        </div>
+    
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/Ai_Hand.png') }}" alt="AI Hand">
+        </div>
+    
+      </div>
+
+    <script src ="{{url_for('static', filename='scripts.js')}}"></script>      
+</body>
+</html>
